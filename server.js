@@ -12,7 +12,7 @@ const options = {
 const app = eexpress();
 
 app.use(helmet());
-app.use(express.static('www'));
+app.use(express.static(process.env.MODULEPATH));
 
 app.listen(process.env.PORT);
 
