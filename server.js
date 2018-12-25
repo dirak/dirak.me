@@ -9,11 +9,11 @@ const options = {
 	cert: fs.readFileSync(process.env.CERTPATH)
 };
 
-const app = eexpress();
+const app = express();
 
 app.use(helmet());
 app.use(express.static(process.env.MODULEPATH));
 
-app.listen(process.env.PORT);
+app.listen(process.env.APPPORT);
 
 https.createServer(options, app).listen(process.env.PORT);
