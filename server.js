@@ -13,10 +13,13 @@ const options = {
 const app = express()
 
 app.use(helmet())
-app.use(express.static(process.env.MODULEPATH))
 app.get('/', (req, res) => {
+	if(req.hostname === 'dirak.me') res.sendFile(process.env.MODULEPATH)
 	console.log(req.hostname)
 })
+
+//app.use(express.static(process.env.MODULEPATH))
+
 app.listen(process.env.APPPORT)
 
 https.createServer(options, app).listen(process.env.PORT)
