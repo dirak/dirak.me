@@ -13,17 +13,7 @@ const options = {
 const app = express()
 
 app.use(helmet())
-app.get('/', (req, res) => {
-	if(req.hostname === 'garfeet.me') res.sendFile(process.env.FEETPATH)
-	else app.use(express.static(process.env.MODULEPATH))
-	console.log(req.hostname)
-})
-
-app.get('/:path', (req, res) => {
-	if(req.hostname === 'dirak.me') res.sendFile(`${process.env.MODULEPATH}/${req.params.path}`)
-})
-
-//app.use(express.static(process.env.MODULEPATH))
+app.use(express.static(process.env.MODULEPATH))
 
 app.listen(process.env.APPPORT)
 
