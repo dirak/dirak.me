@@ -14,7 +14,8 @@ const app = express()
 
 app.use(helmet())
 app.get('/', (req, res) => {
-	if(req.hostname === 'dirak.me') res.sendFile(process.env.MODULEPATH)
+	if(req.hostname === 'garfeet.me') res.sendFile(process.env.FEETPATH)
+	else app.use(express.static(process.env.MODULEPATH))
 	console.log(req.hostname)
 })
 
